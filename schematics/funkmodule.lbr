@@ -124,7 +124,7 @@ XY-MK-5V</text>
 <pin name="MOSI" x="-12.7" y="-2.54" length="middle" direction="in"/>
 <pin name="MISO" x="15.24" y="2.54" length="middle" direction="out" rot="R180"/>
 <pin name="IRQ" x="-12.7" y="2.54" length="middle"/>
-<pin name="VCC" x="-12.7" y="-5.08" length="middle" direction="pwr"/>
+<pin name="VCC" x="-12.7" y="-5.08" length="middle" direction="sup"/>
 <wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-7.62" x2="10.16" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="10.16" y1="-7.62" x2="10.16" y2="7.62" width="0.254" layer="94"/>

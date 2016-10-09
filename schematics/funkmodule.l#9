@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -62,7 +62,7 @@
 <wire x1="20.32" y1="20.32" x2="0" y2="20.32" width="0.127" layer="21"/>
 <wire x1="0" y1="20.32" x2="0" y2="0" width="0.127" layer="21"/>
 <pad name="DATA" x="7.62" y="1.27" drill="0.8" shape="long" rot="R90"/>
-<pad name="VCC" x="10.16" y="1.27" drill="0.8" shape="long" rot="R90"/>
+<pad name="TX_ENABLE" x="10.16" y="1.27" drill="0.8" shape="long" rot="R90"/>
 <pad name="GND" x="12.7" y="1.27" drill="0.8" shape="long" rot="R90"/>
 <text x="6.35" y="10.16" size="1.27" layer="21">Transmitter 
 FS1000A</text>
@@ -86,7 +86,7 @@ XY-MK-5V</text>
 <wire x1="12.7" y1="7.62" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="12.7" y1="-7.62" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="-10.16" y1="-7.62" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
-<pin name="VDD" x="-15.24" y="5.08" length="middle" direction="sup"/>
+<pin name="TX_ENABLE" x="-15.24" y="5.08" length="middle" direction="sup"/>
 <pin name="GND" x="-15.24" y="-2.54" length="middle" direction="sup"/>
 <pin name="DATA" x="5.08" y="12.7" length="middle" rot="R270"/>
 <text x="-2.54" y="-5.08" size="1.778" layer="94">Transmitter</text>
@@ -112,7 +112,7 @@ XY-MK-5V</text>
 <connects>
 <connect gate="G$1" pin="DATA" pad="DATA"/>
 <connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="VDD" pad="VCC"/>
+<connect gate="G$1" pin="TX_ENABLE" pad="TX_ENABLE"/>
 </connects>
 <technologies>
 <technology name=""/>
