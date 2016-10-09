@@ -6,7 +6,7 @@ which is capable to communicate over 433 Mhz for interactive radio frequency lig
 I am planning a case like [this](https://www.youtube.com/watch?v=kgPghSJhkzU) for the board.
 The current sketch sends button events over 433 Mhz radio to all other boards. 
 Three buttons are connected to the red, green and blue LEDs and the fourth is connected to the remote beepers.
-If you press the color buttons the LED is lit and the current state of buttons is send to the other boards, which show the same color. 
+If you press the color buttons, the LED is lit and the current state of buttons is send to the other boards, which show the same color. 
 The beeper is only triggered in the remote boards.
 
 Currently the range is only ca. 10 meters, which is nice but not what I need.
