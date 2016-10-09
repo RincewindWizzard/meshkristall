@@ -1,7 +1,9 @@
 # meshkristall
-![Finished board](./images/Meshkristall_side.jpg)
+![Finished board, 433Mhz Version](./images/Meshkristall_side.jpg)
 This project aims to provide a simple board with four buttons and a RGB LED, 
 which is capable to communicate over 433 Mhz for interactive radio frequency light installations.
+
+![Schematics 2.4 Ghz Version](./images/Schematics.jpg)
 
 I am planning a case like [this](https://www.youtube.com/watch?v=kgPghSJhkzU) for the board.
 The current sketch sends button events over 433 Mhz radio to all other boards. 
