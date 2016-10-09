@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.025" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -68,12 +68,12 @@
 <wire x1="-2.159" y1="0" x2="0" y2="2.159" width="0.1524" layer="51" curve="-90"/>
 <wire x1="0" y1="-2.159" x2="2.159" y2="0" width="0.1524" layer="51" curve="90"/>
 <circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
-<pad name="GND" x="0" y="0.889" drill="0.8128" diameter="1.27" shape="long"/>
-<pad name="GREEN" x="0" y="-0.635" drill="0.8128" diameter="1.27" shape="long" rot="R180"/>
+<pad name="VCC" x="0" y="1.905" drill="0.8128" diameter="1.016" shape="long"/>
+<pad name="GREEN" x="0" y="-0.635" drill="0.8128" diameter="1.016" shape="long"/>
 <text x="3.175" y="0.5334" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="3.2004" y="-1.8034" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<pad name="RED" x="0" y="2.413" drill="0.8" diameter="1.27" shape="long" rot="R180"/>
-<pad name="BLUE" x="0" y="-2.159" drill="0.8" diameter="1.27" shape="long"/>
+<pad name="RED" x="0" y="-1.905" drill="0.8" diameter="1.016" shape="long"/>
+<pad name="BLUE" x="0" y="0.635" drill="0.8" diameter="1.016" shape="long"/>
 </package>
 </packages>
 <symbols>
@@ -121,7 +121,7 @@
 <wire x1="-7.62" y1="-2.54" x2="-7.62" y2="0" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="0" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
-<pin name="GND" x="-7.62" y="12.7" visible="off" length="middle" direction="sup" rot="R270"/>
+<pin name="VCC" x="-7.62" y="12.7" visible="off" length="middle" direction="sup" rot="R270"/>
 <pin name="BLUE" x="0" y="-7.62" visible="off" length="middle" direction="sup" rot="R90"/>
 <pin name="GREEN" x="-7.62" y="-7.62" visible="off" length="middle" direction="sup" rot="R90"/>
 <pin name="RED" x="-15.24" y="-7.62" visible="off" length="middle" direction="sup" rot="R90"/>
@@ -129,8 +129,81 @@
 </symbols>
 <devicesets>
 <deviceset name="LED" prefix="LED" uservalue="yes">
-<description>RGB LED5MM
-Common Anode</description>
+<description>&lt;b&gt;LED&lt;/b&gt;&lt;p&gt;
+&lt;u&gt;OSRAM&lt;/u&gt;:&lt;br&gt;
+
+- &lt;u&gt;CHIPLED&lt;/u&gt;&lt;br&gt;
+LG R971, LG N971, LY N971, LG Q971, LY Q971, LO R971, LY R971
+LH N974, LH R974&lt;br&gt;
+LS Q976, LO Q976, LY Q976&lt;br&gt;
+LO Q996&lt;br&gt;
+
+- &lt;u&gt;Hyper CHIPLED&lt;/u&gt;&lt;br&gt;
+LW Q18S&lt;br&gt;
+LB Q993, LB Q99A, LB R99A&lt;br&gt;
+
+- &lt;u&gt;SideLED&lt;/u&gt;&lt;br&gt;
+LS A670, LO A670, LY A670, LG A670, LP A670&lt;br&gt;
+LB A673, LV A673, LT A673, LW A673&lt;br&gt;
+LH A674&lt;br&gt;
+LY A675&lt;br&gt;
+LS A676, LA A676, LO A676, LY A676, LW A676&lt;br&gt;
+LS A679, LY A679, LG A679&lt;br&gt;
+
+-  &lt;u&gt;Hyper Micro SIDELED®&lt;/u&gt;&lt;br&gt;
+LS Y876, LA Y876, LO Y876, LY Y876&lt;br&gt;
+LT Y87S&lt;br&gt;
+
+- &lt;u&gt;SmartLED&lt;/u&gt;&lt;br&gt;
+LW L88C, LW L88S&lt;br&gt;
+LB L89C, LB L89S, LG L890&lt;br&gt;
+LS L89K, LO L89K, LY L89K&lt;br&gt;
+LS L896, LA L896, LO L896, LY L896&lt;br&gt;
+
+- &lt;u&gt;TOPLED&lt;/u&gt;&lt;br&gt;
+LS T670, LO T670, LY T670, LG T670, LP T670&lt;br&gt;
+LSG T670, LSP T670, LSY T670, LOP T670, LYG T670&lt;br&gt;
+LG T671, LOG T671, LSG T671&lt;br&gt;
+LB T673, LV T673, LT T673, LW T673&lt;br&gt;
+LH T674&lt;br&gt;
+LS T676, LA T676, LO T676, LY T676, LB T676, LH T676, LSB T676, LW T676&lt;br&gt;
+LB T67C, LV T67C, LT T67C, LS T67K, LO T67K, LY T67K, LW E67C&lt;br&gt;
+LS E67B, LA E67B, LO E67B, LY E67B, LB E67C, LV E67C, LT E67C&lt;br&gt;
+LW T67C&lt;br&gt;
+LS T679, LY T679, LG T679&lt;br&gt;
+LS T770, LO T770, LY T770, LG T770, LP T770&lt;br&gt;
+LB T773, LV T773, LT T773, LW T773&lt;br&gt;
+LH T774&lt;br&gt;
+LS E675, LA E675, LY E675, LS T675&lt;br&gt;
+LS T776, LA T776, LO T776, LY T776, LB T776&lt;br&gt;
+LHGB T686&lt;br&gt;
+LT T68C, LB T68C&lt;br&gt;
+
+- &lt;u&gt;Hyper Mini TOPLED®&lt;/u&gt;&lt;br&gt;
+LB M676&lt;br&gt;
+
+- &lt;u&gt;Mini TOPLED Santana®&lt;/u&gt;&lt;br&gt;
+LG M470&lt;br&gt;
+LS M47K, LO M47K, LY M47K
+&lt;p&gt;
+Source: http://www.osram.convergy.de&lt;p&gt;
+
+&lt;u&gt;LUXEON:&lt;/u&gt;&lt;br&gt;
+- &lt;u&gt;LUMILED®&lt;/u&gt;&lt;br&gt;
+LXK2-PW12-R00, LXK2-PW12-S00, LXK2-PW14-U00, LXK2-PW14-V00&lt;br&gt;
+LXK2-PM12-R00, LXK2-PM12-S00, LXK2-PM14-U00&lt;br&gt;
+LXK2-PE12-Q00, LXK2-PE12-R00, LXK2-PE12-S00, LXK2-PE14-T00, LXK2-PE14-U00&lt;br&gt;
+LXK2-PB12-K00, LXK2-PB12-L00, LXK2-PB12-M00, LXK2-PB14-N00, LXK2-PB14-P00, LXK2-PB14-Q00&lt;br&gt;
+LXK2-PR12-L00, LXK2-PR12-M00, LXK2-PR14-Q00, LXK2-PR14-R00&lt;br&gt;
+LXK2-PD12-Q00, LXK2-PD12-R00, LXK2-PD12-S00&lt;br&gt;
+LXK2-PH12-R00, LXK2-PH12-S00&lt;br&gt;
+LXK2-PL12-P00, LXK2-PL12-Q00, LXK2-PL12-R00
+&lt;p&gt;
+Source: www.luxeon.com&lt;p&gt;
+
+&lt;u&gt;KINGBRIGHT:&lt;/U&gt;&lt;p&gt;
+KA-3528ASYC&lt;br&gt;
+Source: www.kingbright.com</description>
 <gates>
 <gate name="G$1" symbol="LED" x="0" y="0"/>
 </gates>
@@ -138,9 +211,9 @@ Common Anode</description>
 <device name="5MM" package="LED5MM">
 <connects>
 <connect gate="G$1" pin="BLUE" pad="BLUE"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="GREEN" pad="GREEN"/>
 <connect gate="G$1" pin="RED" pad="RED"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
 </connects>
 <technologies>
 <technology name=""/>
