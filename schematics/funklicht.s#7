@@ -13599,7 +13599,7 @@ W = angled&lt;p&gt;
 <wire x1="170.18" y1="83.82" x2="104.14" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="VCC" class="0">
+<net name="5V" class="0">
 <segment>
 <pinref part="IC2" gate="1" pin="OUT"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
@@ -13630,14 +13630,14 @@ W = angled&lt;p&gt;
 </segment>
 <segment>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
-<pinref part="U$1" gate="G$1" pin="VIN"/>
-<wire x1="76.2" y1="104.14" x2="73.66" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="104.14" x2="71.12" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="104.14" x2="71.12" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="HC-SR04" gate="1" pin="1"/>
 <wire x1="88.9" y1="127" x2="88.9" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="121.92" x2="73.66" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="121.92" x2="73.66" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="VIN"/>
+<wire x1="73.66" y1="104.14" x2="76.2" y2="104.14" width="0.1524" layer="91"/>
 <junction x="73.66" y="104.14"/>
 </segment>
 <segment>
@@ -13647,16 +13647,6 @@ W = angled&lt;p&gt;
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 <wire x1="190.5" y1="106.68" x2="190.5" y2="104.14" width="0.1524" layer="91"/>
 <junction x="190.5" y="104.14"/>
-</segment>
-<segment>
-<pinref part="C5" gate="G$1" pin="+"/>
-<pinref part="3.3V" gate="G$1" pin="OUT"/>
-<wire x1="170.18" y1="104.14" x2="167.64" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="73.66" x2="162.56" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="104.14" x2="167.64" y2="104.14" width="0.1524" layer="91"/>
-<junction x="167.64" y="104.14"/>
-<pinref part="U$4" gate="G$1" pin="VCC"/>
-<wire x1="167.64" y1="73.66" x2="162.56" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -13782,6 +13772,18 @@ W = angled&lt;p&gt;
 <wire x1="109.22" y1="55.88" x2="109.22" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="BUZZER" gate="G$1" pin="1"/>
 <wire x1="109.22" y1="5.08" x2="203.2" y2="5.08" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="3V3" class="0">
+<segment>
+<pinref part="U$4" gate="G$1" pin="VCC"/>
+<wire x1="167.64" y1="73.66" x2="162.56" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="73.66" x2="162.56" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="3.3V" gate="G$1" pin="OUT"/>
+<wire x1="162.56" y1="104.14" x2="167.64" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="+"/>
+<junction x="167.64" y="104.14"/>
+<wire x1="167.64" y1="104.14" x2="170.18" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -13316,7 +13316,7 @@ W = angled&lt;p&gt;
 <part name="U$2" library="power_supply" deviceset="AB5V" device=""/>
 <part name="HC-SR04" library="con-lstb" deviceset="MA04-1" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="SV2" library="con-lstb" deviceset="MA07-1" device=""/>
+<part name="9V" library="con-lstb" deviceset="MA07-1" device=""/>
 <part name="U$3" library="funkmodule" deviceset="NRF24L01" device=""/>
 </parts>
 <sheets>
@@ -13366,7 +13366,7 @@ W = angled&lt;p&gt;
 <instance part="U$2" gate="G$1" x="55.88" y="53.34" rot="MR90"/>
 <instance part="HC-SR04" gate="1" x="93.98" y="134.62" rot="R270"/>
 <instance part="GND12" gate="1" x="96.52" y="121.92"/>
-<instance part="SV2" gate="1" x="134.62" y="157.48" rot="R180"/>
+<instance part="9V" gate="1" x="134.62" y="157.48" rot="R180"/>
 <instance part="U$3" gate="G$1" x="180.34" y="78.74"/>
 </instances>
 <busses>
@@ -13470,7 +13470,7 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="124.46" y1="147.32" x2="124.46" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="SV2" gate="1" pin="7"/>
+<pinref part="9V" gate="1" pin="7"/>
 <wire x1="124.46" y1="149.86" x2="127" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -13574,6 +13574,10 @@ W = angled&lt;p&gt;
 <pinref part="G1" gate="G$1" pin="+"/>
 <wire x1="12.7" y1="66.04" x2="25.4" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="1" pin="IN"/>
+<pinref part="9V" gate="1" pin="1"/>
+<wire x1="127" y1="165.1" x2="12.7" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="165.1" x2="12.7" y2="66.04" width="0.1524" layer="91"/>
+<junction x="12.7" y="66.04"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -13720,10 +13724,10 @@ W = angled&lt;p&gt;
 <wire x1="116.84" y1="119.38" x2="116.84" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="D6"/>
 <wire x1="116.84" y1="88.9" x2="104.14" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="SV2" gate="1" pin="6"/>
-<wire x1="127" y1="152.4" x2="116.84" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="152.4" x2="116.84" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="154.94" x2="116.84" y2="119.38" width="0.1524" layer="91"/>
 <junction x="116.84" y="119.38"/>
+<pinref part="9V" gate="1" pin="5"/>
+<wire x1="116.84" y1="154.94" x2="127" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -13733,10 +13737,10 @@ W = angled&lt;p&gt;
 <wire x1="114.3" y1="127" x2="114.3" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="D5"/>
 <wire x1="114.3" y1="91.44" x2="104.14" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="SV2" gate="1" pin="5"/>
-<wire x1="127" y1="154.94" x2="114.3" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="154.94" x2="114.3" y2="127" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="157.48" x2="114.3" y2="127" width="0.1524" layer="91"/>
 <junction x="114.3" y="127"/>
+<pinref part="9V" gate="1" pin="4"/>
+<wire x1="127" y1="157.48" x2="114.3" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
@@ -13746,10 +13750,10 @@ W = angled&lt;p&gt;
 <wire x1="111.76" y1="134.62" x2="111.76" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="D3"/>
 <wire x1="111.76" y1="96.52" x2="104.14" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="SV2" gate="1" pin="4"/>
-<wire x1="127" y1="157.48" x2="111.76" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="157.48" x2="111.76" y2="134.62" width="0.1524" layer="91"/>
 <junction x="111.76" y="134.62"/>
+<pinref part="9V" gate="1" pin="6"/>
+<wire x1="111.76" y1="152.4" x2="111.76" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="127" y1="152.4" x2="111.76" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -13777,7 +13781,7 @@ W = angled&lt;p&gt;
 <pinref part="U$1" gate="G$1" pin="D7"/>
 <wire x1="104.14" y1="86.36" x2="119.38" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="86.36" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="SV2" gate="1" pin="2"/>
+<pinref part="9V" gate="1" pin="2"/>
 <wire x1="127" y1="162.56" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13786,7 +13790,7 @@ W = angled&lt;p&gt;
 <pinref part="U$1" gate="G$1" pin="A5"/>
 <wire x1="104.14" y1="53.34" x2="121.92" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="53.34" x2="121.92" y2="160.02" width="0.1524" layer="91"/>
-<pinref part="SV2" gate="1" pin="3"/>
+<pinref part="9V" gate="1" pin="3"/>
 <wire x1="127" y1="160.02" x2="121.92" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13803,9 +13807,10 @@ W = angled&lt;p&gt;
 </sheet>
 </sheets>
 <errors>
+<approved hash="102,1,76.2,104.14,VIN,VCC,,,,"/>
 <approved hash="113,1,149.86,127.948,LED1,,,,,"/>
 <approved hash="113,1,94.1747,129.582,HC-SR04,,,,,"/>
-<approved hash="113,1,129.582,156.015,SV2,,,,,"/>
+<approved hash="113,1,129.582,156.015,9V,,,,,"/>
 </errors>
 </schematic>
 </drawing>
