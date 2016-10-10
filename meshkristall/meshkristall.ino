@@ -20,6 +20,8 @@
 #define TX_PIN 3
 #define RX_PIN 12
 #define TX_EN_PIN 7
+#define MAX_RETRANSMISSIONS 1
+uint8_t retransmissions = 0;
 //-----------------------------
 
 
@@ -35,7 +37,7 @@ struct frame {
   uint8_t duration;  
 };
 
-#define MAX_FRAMES 0xFE
+#define MAX_FRAMES (VW_MAX_MESSAGE_LEN/sizeof(frame))
 #define TIMEOUT 100
 uint8_t animation_length = 0;
 uint8_t currentframe = 0;
@@ -44,14 +46,14 @@ bool recording = true;
 uint8_t ticks = 0;
 
 bool add_frame(bool red, bool green, bool blue, bool speaker) {
+  currentframe = animation_length;
   if(currentframe < MAX_FRAMES) {
     animation[currentframe].color = speaker << 3 | red << 2 | green << 1 | blue;
     if(currentframe > 0) {
       animation[currentframe - 1].duration = ticks;
     }
     ticks = 0;
-    currentframe++;
-    animation_length = currentframe;
+    animation_length++;
     return true;
   }
   else {
@@ -60,7 +62,7 @@ bool add_frame(bool red, bool green, bool blue, bool speaker) {
 }
 
 bool double_frame() {
-  if(currentframe > 0) {
+  if(animation_length > 0) {
     bool done = add_frame(0, 0, 0, 0);
     animation[currentframe - 1].color = animation[currentframe - 2].color;
     return done;
@@ -77,9 +79,10 @@ void start_recording() {
 
 void stop_recording() {
   recording = false;
-  animation[currentframe-1].duration = 0xFF;
+  animation[currentframe].duration = 0xFF;
   currentframe = 0;
   ticks = 0;
+  retransmissions = MAX_RETRANSMISSIONS;
 }
 
 void play_frame() {
@@ -132,50 +135,40 @@ void setup() {
     OCR0A  = 0xFF; // when should an interrupt occur
     TCNT0  = 0; // set Timer Value to zero
     
-    /*// Initialise the IO and ISR
+    // Initialise the IO and ISR
     vw_set_tx_pin(TX_PIN);
     vw_set_rx_pin(RX_PIN);
     vw_set_ptt_pin(TX_EN_PIN);
     vw_set_ptt_inverted(false); // Required for DR3100
     vw_setup(300);   // Bits per sec
 
-    vw_rx_start();       // Start the receiver PLL running*/
+    vw_rx_start();       // Start the receiver PLL running
     sei();
 }
 
 
 
 void loop() {
-  
+  transceiver();
 }
 
-
-bool data_available = false;
-uint8_t data = 0;
 void transceiver() {
-  if(data_available) {
-    vw_send(&data, 1);
+  if(retransmissions > 0) {
+    vw_send((uint8_t*)&animation, sizeof(frame) * animation_length);
     delay(10);
-    vw_send(&data, 1);
-    data_available = false;
+    retransmissions--;
   }
   else {
     recieve();
   }
 }
 void recieve() {
-    uint8_t buf[VW_MAX_MESSAGE_LEN];
-    uint8_t buflen = VW_MAX_MESSAGE_LEN;
-    if (vw_get_message(buf, &buflen)) // Non-blocking
-    {
-      set_rgb(
-        (buf[0]) & 1,
-        (buf[0] >> 1) & 1,
-        (buf[0] >> 2) & 1
-      );
-      // trigger alarm
-      digitalWrite(SPEAKER, (buf[0] >> 3) & 1);
-    }      
+  uint8_t buflen = VW_MAX_MESSAGE_LEN;
+  if (vw_get_message((uint8_t*)&animation, &buflen)) // Non-blocking
+  {
+    animation_length = buflen / sizeof(frame);
+    Serial.println(animation_length);
+  }      
 }
 
 void set_rgb(uint8_t red, uint8_t green, uint8_t blue) {
@@ -188,7 +181,7 @@ void set_rgb(uint8_t red, uint8_t green, uint8_t blue) {
 // Wait for the end of a recording and play the animation
 ISR(TIMER0_COMPA_vect) {
   if(recording) {
-    if(animation[currentframe - 1].color == 0) {
+    if(animation[currentframe].color == 0) {
       if((ticks > TIMEOUT) && (animation_length > 0)) {
         stop_recording();
       }
@@ -217,7 +210,4 @@ ISR (PCINT2_vect)
   if(add_frame(red, green, blue, alarm)) {
     set_rgb(red, green, blue);
   }
-  
-  data = (alarm << 3) | (red << 2) | (green << 1) | blue;
-  data_available = true;
 }
